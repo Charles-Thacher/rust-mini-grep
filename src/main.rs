@@ -1,10 +1,10 @@
 use std::env;
 use std::process;
 
-use minigrep::Config;
+use rust_mini_grep::Config;
 
 fn main() {
-    // --snip--
+
     let args: Vec<String> = env::args().collect();
 
     let config = Config::build(&args).unwrap_or_else(|err| {
@@ -15,8 +15,8 @@ fn main() {
     println!("Searching for {}", config.query);
     println!("In file {}", config.file_path);
 
-    if let Err(e) = minigrep::run(config) {
-        // --snip--
+    if let Err(e) = rust_mini_grep::Config::run(config) {
+    
         println!("Application error: {e}");
         process::exit(1);
     }
